@@ -10,7 +10,7 @@
             <h3>{{list.Name}}</h3>
             <p>
                 <button class="btn btn-primary" ng-model="showAddForm" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">Add Todo</button>
-                <button class="btn btn-danger" delete-list>Delete</button>
+                <button class="btn btn-danger" delete-list>Delete List</button>
             </p>
             <form name="addTodoForm" class="form-inline" ng-show="showAddForm" ng-submit="addTodo(Title)">
                 <label class="control-label">Title: </label>
