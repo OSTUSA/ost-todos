@@ -21,6 +21,10 @@
 
         var self = this;
 
+        $scope.$on('list:deleted', function() {
+            self.setLists();
+        });
+
         this.setLists = function() {
             TodoList.query(function (lists) {
                 var items = [], buffer = [];

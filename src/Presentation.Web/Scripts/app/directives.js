@@ -4,7 +4,8 @@
             link: function(scope, elem, attrs, ctrl) {
                 elem.on('click', function() {
                     if (confirm('Are you sure?')) {
-                        scope.list.$delete(function() {
+                        scope.list.$delete(function () {
+                            scope.$emit('list:deleted');
                             elem.closest('.span6').remove();
                         });
                     }
