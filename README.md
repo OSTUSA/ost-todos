@@ -1,7 +1,8 @@
 OstTodos
 ========
 A domain driven .NET application built on [NDriven](https://github.com/OSTUSA/ndriven).
-This application is served up using WebApi and Angular JS
+This application is served up using WebApi and Angular JS.  Here are simple wireframes that describe the functionality of
+this sample: https://ost.mybalsamiq.com/projects/glsecdomaindrivendesignapp/grid
 
 Running
 -------
@@ -18,7 +19,7 @@ Make sure you have a database on your local machine called OstTodos
 
 ###Step4###
 Run migrations
-
+Start in the root of the ost-todos folder
 ```
 bin\Migrate.exe -c "server=.\SQLExpress;database=OstTodos;Integrated Security=SSPI" -db sqlserver2008
 -a "src\Infrastructure.Migrations\bin\Debug\Infrastructure.Migrations.dll" -t migrate:up --profile=Development
