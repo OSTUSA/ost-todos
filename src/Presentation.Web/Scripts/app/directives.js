@@ -19,6 +19,9 @@
             restrict: 'A',
             link: function(scope, elem, attrs) {
                 var modal = angular.element('#addListModal');
+                modal.on('shown', function() {
+                    $(this).find('input').focus();
+                });
                 elem.on('click', function(e) {
                     modal.modal('show');
                 });
