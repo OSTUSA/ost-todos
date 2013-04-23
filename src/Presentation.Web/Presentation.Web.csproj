@@ -179,7 +179,7 @@
     <Compile Include="Models\Display\TodoListDisplay.cs" />
     <Compile Include="Models\Input\TodoInput.cs" />
     <Compile Include="Models\Input\TodoListInput.cs" />
-    <Compile Include="Scripts\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ControllerBase.cs" />
