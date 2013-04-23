@@ -1,0 +1,11 @@
+﻿body {
+    padding-top: 60px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+@media only screen and (max-width: 979px) {
+    body {padding-top:0;}
+}

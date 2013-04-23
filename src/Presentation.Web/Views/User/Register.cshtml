@@ -1,0 +1,30 @@
+﻿@using Presentation.Web.Models.Input
+@model RegisterInput
+
+<div class="row">
+    <h1 class="text-center">Registration</h1>
+    <div class="span7 userform userform-center well">
+        @{ Html.EnableClientValidation(); }
+        @{ Html.EnableClientValidation(); }
+        @using (Html.BeginForm("Register", "User", FormMethod.Post, new {@class = "form-horizontal"}))
+        {
+            @Html.EditorFor(x => x.Email, new { placeholder = "email@address.com" })
+
+            @Html.EditorFor(x => x.Name, new { placeholder = "NDriven User"})
+
+            <div class="control-group">
+                @Html.LabelFor(x => x.Password, new { @class = "control-label" })
+                <div class="controls">
+                    @Html.PasswordFor(x => x.Password)
+                    @Html.ValidationMessageFor(x => x.Password, null, new {@class = "text-error"})
+                </div>
+            </div>
+
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="btn">Register</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>

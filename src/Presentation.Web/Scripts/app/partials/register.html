@@ -1,0 +1,38 @@
+﻿<div class="row">
+    <h1 class="text-center">Registration</h1>
+    <div class="span7 form form-center well">
+        <form name="registerForm" class="form-horizontal" ng-submit="register()">
+            
+            <div class="control-group" ng-class="{error:registerForm.Email.$invalid}">
+                <p>
+                    <a href="/#login">Already have a login? Click here to sign in</a>
+                </p>
+                <label class="control-label" for="Email">Email: </label>
+                <div class="controls">
+                    <input ng-model="Email" type="email" id="Email" name="Email" value="" placeholder="email@address.com" required />
+                </div>
+            </div>
+            
+            <div class="control-group" ng-class="{error:registerForm.Name.$invalid}">
+                <label class="control-label" for="Name">Name: </label>
+                <div class="controls">
+                    <input type="text" ng-model="Name" id="Name" name="Name" value="" placeholder="Todo User" required />
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label class="control-label" for="Password">Password: </label>
+                <div class="controls">
+                    <input type="password" ng-model="Password" id="Password" name="Password" value="" required />
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <div class="controls">
+                    <button ng-disabled="registerForm.$invalid" type="submit" class="btn">Register</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

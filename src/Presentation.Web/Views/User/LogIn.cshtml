@@ -1,0 +1,26 @@
+﻿@using Presentation.Web.Models.Input
+@model LoginInput
+
+<div class="row">
+    <h1 class="text-center">Login</h1>
+    <div class="span7 userform userform-center well">
+        @using (Html.BeginForm("LogIn", "User", FormMethod.Post, new {@class = "form-horizontal"}))
+        {
+            @Html.EditorFor(x => x.Email, new { placeholder = "email@address.com" })
+
+            <div class="control-group">
+                @Html.LabelFor(x => x.Password, new { @class = "control-label" })
+                <div class="controls">
+                    @Html.PasswordFor(x => x.Password)
+                    @Html.ValidationMessageFor(x => x.Password, null, new {@class = "text-error"})
+                </div>
+            </div>
+
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="btn">Login</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>

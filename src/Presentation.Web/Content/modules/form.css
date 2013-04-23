@@ -1,0 +1,10 @@
+﻿.form {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.form.form-center {
+    margin-left:auto;
+    margin-right: auto;
+    float: none;
+}
