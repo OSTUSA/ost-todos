@@ -1,6 +1,6 @@
 OST Todos Reference Application
 ===============================
-A domain driven .NET application built on OST's (http://www.ostusa.com/app-dev) [NDriven](https://github.com/OSTUSA/ndriven) framework.
+A domain driven .NET application built on [OST's](http://www.ostusa.com/app-dev) [NDriven](https://github.com/OSTUSA/ndriven) framework.
 This application is developed using ASP.Net MVC 4, WebApi and Angular JS.  
 
 Here are wireframes that describe the functionality of
