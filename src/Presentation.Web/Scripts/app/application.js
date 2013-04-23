@@ -5,7 +5,7 @@ var application = angular.module("todos", ["todos.controllers", "ngCookies", 'to
         $routeProvider.when('/lists', { templateUrl: '/Scripts/app/partials/lists.html', controller: 'ListsCtrl' });
         $routeProvider.when('/login', { templateUrl: '/Scripts/app/partials/login.html', controller: 'LoginCtrl' });
         $routeProvider.when('/register', { templateUrl: '/Scripts/app/partials/register.html', controller: 'RegisterCtrl' });
-        $routeProvider.otherwise({ redirectTo: '/lists' });
+        $routeProvider.otherwise({ redirectTo: '/login' });
     }]).
     config(["$httpProvider", function($httpProvider) {
         var interceptor = ['$rootScope', '$q', '$location', function($rootScope, $q, $location) {
