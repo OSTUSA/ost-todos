@@ -1,12 +1,14 @@
-OstTodos
+OST Todos
 ========
-A domain driven .NET application built on [NDriven](https://github.com/OSTUSA/ndriven).
-This application is served up using WebApi and Angular JS.  Here are simple wireframes that describe the functionality of
-this sample: https://ost.mybalsamiq.com/projects/glsecdomaindrivendesignapp/grid
+A domain driven .NET application built on OST's (http://www.ostusa.com/app-dev) [NDriven](https://github.com/OSTUSA/ndriven) framework.
+This application is developed using ASP.Net MVC 4, WebApi and Angular JS.  
+
+Here are wireframes that describe the functionality of
+this simple but very extensible sample: https://ost.mybalsamiq.com/projects/glsecdomaindrivendesignapp/grid
 
 Running
 -------
-Running OstTodos is a snap.
+Running OST Todos is a snap.
 
 ###Step 1###
 Clone.
@@ -19,6 +21,7 @@ Make sure you have a database on your local machine called OstTodos
 
 ###Step4###
 Run migrations
+
 Start in the root of the ost-todos folder
 ```
 bin\Migrate.exe -c "server=.\SQLExpress;database=OstTodos;Integrated Security=SSPI" -db sqlserver2008
