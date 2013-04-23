@@ -1,6 +1,7 @@
 ﻿angular.module('todos.directives', []).
     directive('deleteList', function() {
         return {
+            restrict: 'A',
             link: function(scope, elem, attrs, ctrl) {
                 elem.on('click', function() {
                     if (confirm('Are you sure?')) {
@@ -15,6 +16,7 @@
     }).
     directive('showAddList', function() {
         return {
+            restrict: 'A',
             link: function(scope, elem, attrs) {
                 var modal = angular.element('#addListModal');
                 elem.on('click', function(e) {
@@ -29,13 +31,21 @@
     }).
     directive('giveFocus', function() {
         return {
-            link: function(scope, elem, attrs) {
-                scope.$watch('showAddForm', function(val) {
-                    if (val == 0 || typeof val === "undefined") {
+            restrict: 'A',
+            link: function (scope, elem, attrs) {
+                scope.$watch('list.Todos.length', function(newVal, oldVal) {
+                    if (newVal > oldVal)
                         elem.focus();
-                    } else {
-                        elem.blur();
-                    }
+                });
+            }
+        };
+    }).
+    directive('stopEvent', function () {
+        return {
+            restrict: 'A',
+            link: function(scope, element, attr) {
+                element.bind(attr.stopEvent, function(e) {
+                    e.stopPropagation();
                 });
             }
         };

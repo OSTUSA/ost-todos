@@ -65,5 +65,15 @@ namespace Presentation.Web.Controllers
             _repo.Store(list);
             return Request.CreateResponse(HttpStatusCode.OK, new TodoDisplay{Title = todoInput.Title, Id = todo.Id, Completed = false});
         }
+
+        [Authorize]
+        [HttpGet]
+        public IEnumerable<TodoDisplay> Todos(long Id)
+        {
+            var list = _repo.Get(Id);
+            return
+                list.Todos.Select(t => new TodoDisplay() { Id = t.Id, Title = t.Title, Completed = t.Completed }).ToList();
+            ;
+        }
     }
 }

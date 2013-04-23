@@ -3,3 +3,16 @@
     padding-left: 0;
     list-style: none;
 }
+
+    .todolist .todos .icon-remove {
+        cursor: pointer;
+        position: relative;
+        left: 5px;
+    }
+
+.todolist .todolist-title i {
+    position: relative;
+    left: 5px;
+    top: 8px;
+    cursor: pointer;
+}

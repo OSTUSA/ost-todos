@@ -43,15 +43,21 @@
 
         $scope.addList = function() {
             var todo = new TodoList({ Name: $scope.Name });
-            todo.$save(function() {
-                self.setLists();
+            todo.$save(function () {
                 $scope.$broadcast('list:added');
+                self.setLists();
             });
         };
 
     }]).
     controller("ListCtrl", ["$scope", "ListTodo", "Todo", function ($scope, ListTodo, Todo) {
-        
+
+        $scope.$on('todo:deleted', function() {
+            ListTodo.query({listId:$scope.list.Id}, function(todos) {
+                $scope.list.Todos = todos;
+            });
+        });
+
         $scope.addTodo = function (title) {
             var todo = new ListTodo({ Title: title });
             todo.$save({ listId: $scope.list.Id }, function () {
@@ -80,14 +86,25 @@
     }]).
     controller("TodoCtrl", ["$scope", "Todo", function ($scope, Todo) {
 
+        $scope.delete = function (todo) {
+            todo.deleting = true;
+            Todo.delete({ id: todo.Id }, {}, function() {
+                $scope.$emit('todo:deleted');
+            }, function() {
+                todo.deleting = false;
+            });
+        };
+
         $scope.markDone = function (todo) {
+            if (todo.deleting) return;
             todo.Completed = true;
             if (!todo.hasOwnProperty('$update'))
                 todo = new Todo(todo);
             todo.$update();
         };
 
-        $scope.markNotDone = function(todo) {
+        $scope.markNotDone = function (todo) {
+            if (todo.deleting) return;
             todo.Completed = false;
             if (!todo.hasOwnProperty('$update'))
                 todo = new Todo(todo);

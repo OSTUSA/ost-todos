@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-var application = angular.module("todos", ["todos.controllers", "ngCookies", 'todos.directives', 'todos.filters', 'ui.bootstrap.buttons']).
+var application = angular.module("todos", ["todos.controllers", "ngCookies", 'todos.directives', 'todos.filters']).
     config(["$routeProvider", function($routeProvider) {
         $routeProvider.when('/lists', { templateUrl: '/Scripts/app/partials/lists.html', controller: 'ListsCtrl' });
         $routeProvider.when('/login', { templateUrl: '/Scripts/app/partials/login.html', controller: 'LoginCtrl' });

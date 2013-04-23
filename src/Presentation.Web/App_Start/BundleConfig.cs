@@ -32,7 +32,7 @@ namespace Presentation.Web
 
             bundles.Add(new StyleBundle("~/Content/boot").Include(
                         "~/Content/bootstrap/css/bootstrap.css",
-                        "~/Content/bootstrap/css/bootstrap-responsive.css"
+                        "~/Content/bootstrap/css/*.css"
                 ));
 
         }

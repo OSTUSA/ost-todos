@@ -7,30 +7,25 @@
 <div class="row" ng-repeat="row in lists">
     <div class="span6" ng-repeat="list in row.row">
         <div class="well todolist" ng-controller="ListCtrl">
-            <h3>{{list.Name}}</h3>
-            <p>
-                <button class="btn btn-primary" ng-model="showAddForm" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">Add Todo</button>
-                <button class="btn btn-danger" delete-list>Delete List</button>
-            </p>
-            <form name="addTodoForm" class="form-inline" ng-show="showAddForm" ng-submit="addTodo(Title)">
-                <label class="control-label">Title: </label>
-                <input type="text" ng-model="Title" placeholder="Pick up eggs" give-focus required />
-                <button type="submit" class="btn">Add</button>
+            <h3 class="todolist-title">{{list.Name}} <i delete-list title="Click to delete list" class="icon-trash"></i></h3>
+            <form name="addTodoForm" class="form-inline" ng-submit="addTodo(Title)">
+                <input type="text" ng-model="Title" placeholder="Pick up the milk" give-focus required />
+                <button type="submit" class="btn btn-success">Add Todo</button>
             </form>
             <div ng-show="list.Todos.length > 0">
                 <h4 ng-hide="completed() == list.Todos.length">Not Done</h4>
                 <ul class="todos">
                     <li ng-repeat="todo in list.Todos | incomplete" ng-controller="TodoCtrl">
                         <label class="checkbox">
-                            <input ng-click="markDone(todo)" type="checkbox" /> {{todo.Title}}
-                        </label>
+                            <input ng-click="markDone(todo)" type="checkbox" /> {{todo.Title}} <i ng-click="delete(todo)" title="Click to delete todo" class="icon-remove"></i>
+                        </label>     
                     </li>
                 </ul>
                 <h4 ng-hide="completed() == 0">Done</h4>
                 <ul class="todos">
                     <li ng-repeat="todo in list.Todos | complete" ng-controller="TodoCtrl">
                         <label class="checkbox">
-                            <input ng-click="markNotDone(todo)" type="checkbox" checked="checked" /> {{todo.Title}}
+                            <input ng-click="markNotDone(todo)" type="checkbox" checked="checked" /> {{todo.Title}} <i ng-click="delete(todo)" title="Click to delete todo" class="icon-remove"></i>
                         </label>
                     </li>
                 </ul>
