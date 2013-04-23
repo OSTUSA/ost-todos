@@ -34,7 +34,7 @@ Enjoy.
 
 Highlights
 ----------
-The presentation layer is powered by WebApi and Angular JS. It supports client side login and registration. The application module
+The presentation layer is powered by WebApi, Angular JS, and Bootstrap. It supports client side login and registration. The application module
 exposes some angular powers for kicking the user to the login screen on all `401` responses.
 
 Todo
