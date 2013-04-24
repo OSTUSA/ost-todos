@@ -13,10 +13,10 @@ Running OST Todos is a snap.
 ###Step 1###
 Clone.
 
-###Step2###
+###Step 2###
 Build the solution. This will fetch all dependencies. This of course requires Package Restore. Make sure you set "Allow NuGet to download missing packages during build" in Package Manager settings.
 
-###Step3###
+###Step 3###
 Make sure you have a database on your local machine called OstTodos.  Look in the web.config file within /src/presentation.web to update 
 your connectionString.  Here are a couple of examples.
 
@@ -34,7 +34,7 @@ SQL Server Standard with Integrated Security
 </connectionStrings>
 ```
 
-###Step4###
+###Step 4###
 Run migrations
 
 Start in the root of the ost-todos folder
