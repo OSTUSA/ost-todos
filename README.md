@@ -1,6 +1,6 @@
 OST Todos Reference Application
 ===============================
-A domain driven .NET application built on [OST's](http://www.ostusa.com/app-dev) [NDriven](https://github.com/OSTUSA/ndriven) framework.
+A domain driven .NET application built on <a href="http://www.ostusa.com/app-dev" target="_blank">OST's</a> [NDriven](https://github.com/OSTUSA/ndriven) framework.
 This application is developed using ASP.Net MVC 4, WebApi and Angular JS.  
 
 Here are wireframes that describe the functionality of
@@ -17,7 +17,20 @@ Clone.
 Build the solution. This will fetch all dependencies. This of course requires Package Restore. Make sure you set "Allow NuGet to download missing packages during build" in Package Manager settings.
 
 ###Step3###
-Make sure you have a database on your local machine called OstTodos
+Make sure you have a database on your local machine called OstTodos.  Look in the web.config file with /src/presentation.web to update 
+your connectionString.  Here are a couple of examples.
+
+```
+SQL Express (Default in web.config)
+<connectionStrings>
+    <add name="DefaultConnection" connectionString="server=.\SQLExpress;database=OstTodos;Integrated Security=SSPI" providerName="System.Data.SqlClient" />
+</connectionStrings>
+
+SQL Server Standard with Integrated Security
+<connectionStrings>
+    <add name="DefaultConnection" connectionString="server=localhost;database=OstTodos;Integrated Security=SSPI" providerName="System.Data.SqlClient" />
+</connectionStrings>
+```
 
 ###Step4###
 Run migrations
