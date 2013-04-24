@@ -59,6 +59,7 @@
       <HintPath>..\..\packages\Ninject.Web.Common.3.0.0.7\lib\net45-full\Ninject.Web.Common.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -70,6 +71,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\MigrationsModule.cs" />
     <Compile Include="NHibernate\InvalidFactoryException.cs" />
     <Compile Include="NHibernate\NHibernateModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,6 +83,10 @@
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{727841E0-A565-4040-8EFA-796ACD25A9D4}</Project>
       <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.Migrations\Infrastructure.Migrations.csproj">
+      <Project>{CADAFB1A-2987-4B7B-8777-7FDC56273B57}</Project>
+      <Name>Infrastructure.Migrations</Name>
     </ProjectReference>
     <ProjectReference Include="..\Infrastructure.NHibernate\Infrastructure.NHibernate.csproj">
       <Project>{00EBC56F-9CF9-4E66-8B9C-69274C75EAF2}</Project>

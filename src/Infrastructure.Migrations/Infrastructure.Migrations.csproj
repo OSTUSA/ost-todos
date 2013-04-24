@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MigrationPersistenceSetup.cs" />
     <Compile Include="Migrations\CreateTodoTables.cs" />
     <Compile Include="Profiles\CreateDevelopmentUsers.cs" />
     <Compile Include="Migrations\CreateUserTable.cs" />

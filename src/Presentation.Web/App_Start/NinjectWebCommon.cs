@@ -1,4 +1,5 @@
 using System.Web.Http;
+using Infrastructure.IoC.Migrations;
 using Infrastructure.IoC.NHibernate;
 using Presentation.Web.Services;
 
@@ -61,6 +62,7 @@ namespace Presentation.Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Load(new NHibernateModule());
+            kernel.Load(new MigrationsModule());
             kernel.Bind<IAuthenticationService>().To<AuthenticationService>();
         }        
     }
