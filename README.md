@@ -34,20 +34,15 @@ SQL Server Standard with Integrated Security
 </connectionStrings>
 ```
 
-###Step 4###
-Run migrations
+Migrations are run via the IPersistenceSetup service when the application starts. Migrations are run with a `Development` profile that
+ensures a test user is available with the following credentials:
 
-Start in the root of the ost-todos folder
 ```
-bin\Migrate.exe -c "server=.\SQLExpress;database=OstTodos;Integrated Security=SSPI" -db sqlserver2008
--a "src\Infrastructure.Migrations\bin\Debug\Infrastructure.Migrations.dll" -t migrate:up --profile=Development
-```
-
-The `--profile=Development` ensures you have a user with the following credentials to play with:
 email: test1@test.com
 password: password
+```
 
-###Step5###
+###Step4###
 Enjoy.
 
 
