@@ -14,7 +14,7 @@ Running OST Todos is a snap.
 Clone.
 
 ###Step2###
-Build the solution. This will fetch all dependencies.
+Build the solution. This will fetch all dependencies. This of course requires Package Restore. Make sure you set "Allow NuGet to download missing packages during build" in Package Manager settings.
 
 ###Step3###
 Make sure you have a database on your local machine called OstTodos
