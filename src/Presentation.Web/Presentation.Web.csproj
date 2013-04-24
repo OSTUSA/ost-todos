@@ -216,7 +216,6 @@
     <Content Include="Scripts\app\controllers.js" />
     <Content Include="Scripts\app\directives.js" />
     <Content Include="Scripts\app\filters.js" />
-    <Content Include="Scripts\app\partials\lists-add.html" />
     <Content Include="Scripts\app\partials\lists.html" />
     <Content Include="Scripts\app\partials\login.html" />
     <Content Include="Scripts\app\partials\register.html" />

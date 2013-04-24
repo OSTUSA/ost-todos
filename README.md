@@ -34,8 +34,7 @@ SQL Server Standard with Integrated Security
 </connectionStrings>
 ```
 
-Migrations are run via the IPersistenceSetup service when the application starts. Migrations are run with a `Development` profile that
-ensures a test user is available with the following credentials:
+Migrations are run via the IPersistenceSetup service when the application starts.
 
 ```
 email: test1@test.com

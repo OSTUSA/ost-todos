@@ -10,7 +10,7 @@ namespace Infrastructure.IoC.Migrations
         public override void Load()
         {
             var str = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
-            Bind<IPersistenceSetup>().ToMethod(ctx => new MigrationPersistenceSetup(str, "Development"));
+            Bind<IPersistenceSetup>().ToMethod(ctx => new MigrationPersistenceSetup(str));
         }
     }
 }
