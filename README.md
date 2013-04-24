@@ -3,8 +3,8 @@ OST Todos Reference Application
 A domain driven .NET application built on <a href="http://www.ostusa.com/app-dev" target="_blank">OST's</a> [NDriven](https://github.com/OSTUSA/ndriven) framework.
 This application is developed using ASP.Net MVC 4, WebApi and Angular JS.  
 
-Here are wireframes that describe the functionality of
-this simple but very extensible sample: https://ost.mybalsamiq.com/projects/glsecdomaindrivendesignapp/grid
+We developed some <a href="https://ost.mybalsamiq.com/projects/glsecdomaindrivendesignapp/grid" target="_blank">wireframes</a> that describe the functionality of
+this simple but very extensible sample. 
 
 Running
 -------
