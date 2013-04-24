@@ -74,15 +74,6 @@
             });
             return count;
         };
-
-        $scope.clearCompleted = function () {
-            var todos = [];
-            angular.forEach($scope.list.Todos, function(todo) {
-                todo.Completed ? Todo.delete({ id: todo.Id }) : todos.push(todo);
-            });
-            $scope.list.Todos = todos;
-        };
-
     }]).
     controller("TodoCtrl", ["$scope", "Todo", function ($scope, Todo) {
 

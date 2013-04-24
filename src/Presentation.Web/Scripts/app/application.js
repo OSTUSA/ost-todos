@@ -8,7 +8,7 @@ var application = angular.module("todos", ["todos.controllers", "ngCookies", 'to
         $routeProvider.otherwise({ redirectTo: '/login' });
     }]).
     config(["$httpProvider", function($httpProvider) {
-        var interceptor = ['$rootScope', '$q', '$location', function($rootScope, $q, $location) {
+        var interceptor = ['$rootScope', '$q', function($rootScope, $q) {
             function success(response) {
                 return response;
             }

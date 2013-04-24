@@ -21,7 +21,6 @@ namespace Presentation.Web
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
-                "~/Scripts/vendor/*.js",
                 "~/Scripts/app/application.js",
                 "~/Scripts/app/*.js"
                 ));

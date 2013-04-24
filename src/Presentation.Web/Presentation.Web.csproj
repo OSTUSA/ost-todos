@@ -222,7 +222,6 @@
     <Content Include="Scripts\app\services.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
-    <Content Include="Scripts\vendor\ui-bootstrap-0.2.0.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

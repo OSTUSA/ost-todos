@@ -7,7 +7,6 @@
                     if (confirm('Are you sure?')) {
                         scope.list.$delete(function() {
                             scope.$emit('list:deleted');
-                            elem.closest('.span6').remove();
                         });
                     }
                 });
