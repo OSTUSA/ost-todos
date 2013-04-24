@@ -34,12 +34,8 @@ SQL Server Standard with Integrated Security
 </connectionStrings>
 ```
 
-Migrations are run via the IPersistenceSetup service when the application starts.
-
-```
-email: test1@test.com
-password: password
-```
+Migrations are run via the IPersistenceSetup service when the application starts. Just start the app up, register a user, and
+start making todos!
 
 ###Step4###
 Enjoy.
