@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Core.Domain.Model;
-using Core.Domain.Model.Users;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using Infrastructure.NHibernate;

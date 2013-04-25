@@ -34,11 +34,12 @@
     directive('giveFocus', function() {
         return {
             restrict: 'A',
-            link: function(scope, elem, attrs) {
+            link: function (scope, elem, attrs) {
                 scope.$watch('list.Todos.length', function(newVal, oldVal) {
                     if (newVal > oldVal)
                         elem.focus();
                 });
+                elem.focus();
             }
         };
     });

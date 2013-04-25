@@ -1,6 +1,5 @@
 ﻿using System.Net;
 using System.Net.Http;
-using System.Web.Http;
 using Core.Domain.Model;
 using Core.Domain.Model.Todos;
 using Presentation.Web.Models.Display;
@@ -17,7 +16,7 @@ namespace Presentation.Web.Controllers
             _repo = repo;
         }
 
-        [Authorize]
+        [System.Web.Http.Authorize]
         public HttpResponseMessage Put(long Id, TodoInput todoInput)
         {
             var todo = _repo.Get(Id);
@@ -26,8 +25,8 @@ namespace Presentation.Web.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, new TodoDisplay() {Id = Id, Title = todo.Title, Completed = todo.Completed});
         }
 
-        [Authorize]
-        [HttpDelete]
+        [System.Web.Http.Authorize]
+        [System.Web.Http.HttpDelete]
         public HttpResponseMessage Delete(long Id)
         {
             var todo = _repo.Load(Id);

@@ -10,12 +10,18 @@ namespace Core.Domain.Model.TodoLists
 
         public virtual User Owner { get; set; }
 
-        public virtual ICollection<Todo> Todos { get; set; } 
+        public virtual ICollection<Todo> Todos { get; set; }
 
-        public virtual void AddTodo(Todo todo)
+        public TodoList()
+        {
+            Todos = new HashSet<Todo>();
+        }
+
+        public virtual Todo AddTodo(Todo todo)
         {
             todo.List = this;
             Todos.Add(todo);
+            return todo;
         }
     }
 }

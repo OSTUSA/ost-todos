@@ -40,7 +40,7 @@
         };
 
         this.setLists();
-
+        
         $scope.addList = function() {
             var todo = new TodoList({ Name: $scope.Name });
             todo.$save(function () {

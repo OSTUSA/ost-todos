@@ -26,9 +26,9 @@ namespace Presentation.Web.Controllers
             var todos = _repo.FindBy(x => x.Owner == LoadUser());
             var displays = todos.Select(x => new TodoListDisplay()
                 {
-                    Name = x.Name, 
-                    Id = x.Id, 
-                    Todos = x.Todos.Select(t => new TodoDisplay() {Id = t.Id, Title = t.Title, Completed = t.Completed}).ToList()
+                    Name = x.Name,
+                    Id = x.Id,
+                    Todos = x.Todos.Select(t => new TodoDisplay() { Id = t.Id, Title = t.Title, Completed = t.Completed }).ToList()
                 }).ToList();
             return displays;
         }
@@ -43,7 +43,7 @@ namespace Presentation.Web.Controllers
                     Owner = LoadUser()
                 };
             _repo.Store(entity);
-            return Request.CreateResponse(HttpStatusCode.OK, new TodoListDisplay() {Name = entity.Name, Id = entity.Id});
+            return Request.CreateResponse(HttpStatusCode.OK, new TodoListDisplay() { Name = entity.Name, Id = entity.Id });
         }
 
         [Authorize]
@@ -59,11 +59,11 @@ namespace Presentation.Web.Controllers
         [HttpPost]
         public HttpResponseMessage Todos(long Id, TodoInput todoInput)
         {
-            var todo = new Todo() {Title = todoInput.Title, Completed = false};
+            var todo = new Todo() { Title = todoInput.Title, Completed = false };
             var list = _repo.Get(Id);
             list.AddTodo(todo);
             _repo.Store(list);
-            return Request.CreateResponse(HttpStatusCode.OK, new TodoDisplay{Title = todoInput.Title, Id = todo.Id, Completed = false});
+            return Request.CreateResponse(HttpStatusCode.OK, new TodoDisplay { Title = todoInput.Title, Id = todo.Id, Completed = false });
         }
 
         [Authorize]
