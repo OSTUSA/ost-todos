@@ -27,8 +27,8 @@
                             </li>
                         </ul>
                         <ul class="nav pull-right">
-                            <li><a href="/#login">Login</a></li>
-                            <li><a href="/#register">Register</a></li>
+                            <li ng-hide="isLoggedIn()"><a href="/#login">Login</a></li>
+                            <li ng-hide="isLoggedIn()"><a href="/#register">Register</a></li>
                             <li><a ng-show="isLoggedIn()" href="#" ng-click="logout()">Sign Out</a></li>
                         </ul>
                     </div>
