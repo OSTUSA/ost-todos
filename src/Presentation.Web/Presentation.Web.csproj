@@ -204,6 +204,7 @@
     <Content Include="Content\bootstrap\css\bootstrap.css" />
     <Content Include="Content\bootstrap\img\glyphicons-halflings-white.png" />
     <Content Include="Content\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="Content\img\OST-Logo.png" />
     <Content Include="Content\modules\form.css" />
     <Content Include="Content\modules\todolist.css" />
     <Content Include="favicon.ico" />
