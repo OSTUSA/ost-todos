@@ -34,12 +34,26 @@
     directive('giveFocus', function() {
         return {
             restrict: 'A',
-            link: function (scope, elem, attrs) {
+            link: function(scope, elem, attrs) {
                 scope.$watch('list.Todos.length', function(newVal, oldVal) {
                     if (newVal > oldVal)
                         elem.focus();
                 });
                 elem.focus();
+            }
+        };
+    }).
+    directive('brandLink', function() {
+        return {
+            restrict: 'A',
+            link: function (scope, elem, attrs) {
+                scope.$watch('isLoggedIn()', function(newVal, oldVal) {
+                    if (newVal) {
+                        elem.attr('href', '/#lists');
+                    } else {
+                        elem.attr('href', '/#login');
+                    } 
+                });
             }
         };
     });

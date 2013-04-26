@@ -29,13 +29,14 @@ var application = angular.module("todos", ["todos.controllers", "ngCookies", 'to
         $httpProvider.responseInterceptors.push(interceptor);
     }]);
 
-application.run(['$rootScope', '$location', '$http', '$cookies', function($scope, $location, $http, $cookies) {
+application.run(['$rootScope', '$location', '$http', '$cookies', function ($scope, $location, $http, $cookies) {
+
     $scope.$on('event:loginRequired', function (event) {
         return $location.path('/login');
     });
 
     $scope.logout = function() {
-        $http.get("/user/logout").success(function() {
+        $http.get("/user/logout").success(function () {
             $location.path('/login');
         });
     };

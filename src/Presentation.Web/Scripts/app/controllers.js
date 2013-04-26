@@ -2,7 +2,7 @@
     controller("LoginCtrl", ["$scope", "$http", "$location", function($scope, $http, $location) {
 
         $scope.login = function() {
-            $http.post("/user/login", { Email: $scope.Email, Password: $scope.Password }).success(function() {
+            $http.post("/user/login", { Email: $scope.Email, Password: $scope.Password }).success(function () {
                 $location.path('/lists');
             });
         };
