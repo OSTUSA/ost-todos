@@ -42,6 +42,6 @@ application.run(['$rootScope', '$location', '$http', '$cookies', function ($scop
     };
 
     $scope.isLoggedIn = function() {
-        return $cookies.hasOwnProperty(".ASPXAUTH");
+        return $cookies.hasOwnProperty("credentials");
     };
 }]);

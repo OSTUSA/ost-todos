@@ -15,7 +15,7 @@ namespace Test.Unit.Presentation.Web.Controllers
     [TestFixture]
     public class UserControllerTest
     {
-        protected UserController Controller;
+        protected UsersController Controller;
         protected Mock<IAuthenticationService> Auth;
         protected Mock<IRepository<User>> Repo;
         protected Mock<HttpContextBase> Context;
@@ -26,7 +26,7 @@ namespace Test.Unit.Presentation.Web.Controllers
         {
             Repo = new Mock<IRepository<User>>();
             Auth = new Mock<IAuthenticationService>();
-            Controller = new UserController(Repo.Object, Auth.Object);
+            Controller = new UsersController(Repo.Object, Auth.Object);
             Context = new Mock<HttpContextBase>(MockBehavior.Strict);
             Response = new Mock<HttpResponseBase>();
             Response.SetupGet(x => x.Cookies).Returns(new HttpCookieCollection());

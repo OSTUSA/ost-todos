@@ -5,7 +5,7 @@ namespace Presentation.Web.Models.Input
 {
     public class RegisterInput
     {
-        [Required, UniqueEmail]
+        [Required]
         public string Email { get; set; }
 
         [Required]

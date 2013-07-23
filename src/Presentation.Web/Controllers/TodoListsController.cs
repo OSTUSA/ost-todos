@@ -20,7 +20,6 @@ namespace Presentation.Web.Controllers
             _repo = repo;
         }
 
-        [Authorize]
         public IEnumerable<TodoListDisplay> Get()
         {
             var todos = _repo.FindBy(x => x.Owner == LoadUser());
@@ -28,12 +27,13 @@ namespace Presentation.Web.Controllers
                 {
                     Name = x.Name,
                     Id = x.Id,
-                    Todos = x.Todos.Select(t => new TodoDisplay() { Id = t.Id, Title = t.Title, Completed = t.Completed }).ToList()
-                }).ToList();
+                    Todos =
+                        x.Todos.Select(t => new TodoDisplay() {Id = t.Id, Title = t.Title, Completed = t.Completed})
+                         .ToList()
+                });
             return displays;
         }
 
-        [Authorize]
         [HttpPost]
         public HttpResponseMessage Post(TodoListInput list)
         {
@@ -46,7 +46,6 @@ namespace Presentation.Web.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, new TodoListDisplay() { Name = entity.Name, Id = entity.Id });
         }
 
-        [Authorize]
         [HttpDelete]
         public HttpResponseMessage Delete(long Id)
         {
@@ -55,7 +54,6 @@ namespace Presentation.Web.Controllers
             return Request.CreateResponse(HttpStatusCode.NoContent);
         }
 
-        [Authorize]
         [HttpPost]
         public HttpResponseMessage Todos(long Id, TodoInput todoInput)
         {
@@ -66,7 +64,6 @@ namespace Presentation.Web.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, new TodoDisplay { Title = todoInput.Title, Id = todo.Id, Completed = false });
         }
 
-        [Authorize]
         [HttpGet]
         public IEnumerable<TodoDisplay> Todos(long Id)
         {

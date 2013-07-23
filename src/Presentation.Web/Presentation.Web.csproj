@@ -175,8 +175,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectDependencyScope.cs" />
     <Compile Include="Controllers\TodosController.cs" />
+    <Compile Include="Filters\BasicAccessFilter.cs" />
     <Compile Include="Models\Display\TodoDisplay.cs" />
     <Compile Include="Models\Display\TodoListDisplay.cs" />
+    <Compile Include="Models\Display\UserDisplay.cs" />
     <Compile Include="Models\Input\TodoInput.cs" />
     <Compile Include="Models\Input\TodoListInput.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
@@ -185,7 +187,7 @@
     <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TodoListsController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -245,7 +247,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
