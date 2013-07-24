@@ -42,6 +42,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\NHibernate.3.3.2.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject">
       <HintPath>..\..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
@@ -259,6 +263,10 @@
     <ProjectReference Include="..\Infrastructure.IoC\Infrastructure.IoC.csproj">
       <Project>{FD2016FF-4272-484A-9BFD-53E23DC6D5E5}</Project>
       <Name>Infrastructure.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.NHibernate\Infrastructure.NHibernate.csproj">
+      <Project>{00EBC56F-9CF9-4E66-8B9C-69274C75EAF2}</Project>
+      <Name>Infrastructure.NHibernate</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

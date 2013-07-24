@@ -14,7 +14,7 @@ namespace Presentation.Web
     {
         public static void Register(HttpConfiguration config)
         {
-            config.Filters.Add(new BasicAccessFilter(DependencyResolver.Current.GetService<IRepository<User>>()));
+            config.Filters.Add(new BasicAccessFilter());
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

@@ -9,31 +9,74 @@ using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 using Core.Domain.Model;
 using Core.Domain.Model.Users;
+using System.Collections.Generic;
+using System.Net.Http.Headers;
+using Infrastructure.IoC.NHibernate;
+using Infrastructure.NHibernate;
+using Infrastructure.NHibernate.Repositories;
+using NHibernate;
 
 namespace Presentation.Web.Filters
 {
     public class BasicAccessFilter : AuthorizationFilterAttribute
     {
-        private readonly IRepository<User> _repo; 
+        private ISessionFactory _factory;
 
-        public BasicAccessFilter(IRepository<User> repo)
+        private static readonly IDictionary<string, long> UserCache = new Dictionary<string, long>();
+
+        public BasicAccessFilter()
         {
-            _repo = repo;
+            var factoryFunc = NHibernateModule.DefaultFactory;
+            var builder = new SessionFactoryBuilder();
+            _factory = builder.GetFactory("Default", factoryFunc);
         }
 
         public override void OnAuthorization(HttpActionContext actionContext)
         {
             if (ShouldSkipAuth(actionContext)) return;
+
+            var request = actionContext.Request;
+            var xAuth = string.Empty;
+            if (request.Headers.Contains("X-AUTH-TOKEN"))
+            {
+                xAuth = request.Headers.GetValues("X-AUTH-TOKEN").FirstOrDefault();
+            }
+            var cookie = request.Headers.GetCookies().Select(c => c["UserAuthenticationToken"]).FirstOrDefault();
+            if (cookie != null && !string.IsNullOrEmpty(xAuth))
+            {
+                if (cookie.Value == xAuth)
+                {
+                    SetPrincipal(UserCache[cookie.Value]);
+                    base.OnAuthorization(actionContext);
+                    return;
+                }
+            }
+
             var user = GetUser(actionContext);
             if (user == null)
             {
-                var resp = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized);
-                resp.Headers.Add("WWW-Authenticate", @"Basic realm='osttodos'");
-                actionContext.Response = resp;
+                Challenge(actionContext);
                 return;
             }
             SetPrincipal(user);
+            var token = GenerateToken(actionContext);
+            UserCache[token] = user.Id;
             base.OnAuthorization(actionContext);
+        }
+
+        private static string GenerateToken(HttpActionContext context)
+        {
+            var token = System.Guid.NewGuid().ToString();
+            context.Response = context.Request.CreateResponse(HttpStatusCode.OK);
+            context.Response.Headers.AddCookies(new[] { new CookieHeaderValue("UserAuthenticationToken", token) });
+            return token;
+        }
+
+        private static void Challenge(HttpActionContext actionContext)
+        {
+            var resp = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized);
+            resp.Headers.Add("WWW-Authenticate", @"Basic realm='osttodos'");
+            actionContext.Response = resp;
         }
 
         public bool ShouldSkipAuth(HttpActionContext actionContext)
@@ -54,9 +97,13 @@ namespace Presentation.Web.Filters
         {
             var decoded = GetBase64DecodedString(request.Headers.Authorization.Parameter).Split(':');
             string email = decoded[0], password = decoded[1];
-            var user = _repo.FindOneBy(u => u.Email == email);
-            if (!user.IsAuthenticated(password)) return null;
-            return user;
+            using (var session = _factory.OpenSession())
+            {
+                var repo = new NHibernateRepository<User>(session);
+                var user = repo.FindOneBy(u => u.Email == email);
+                if (!user.IsAuthenticated(password)) return null;
+                return user;
+            }
         }
 
         private static string GetBase64DecodedString(string toDecode)
@@ -67,7 +114,12 @@ namespace Presentation.Web.Filters
 
         private static void SetPrincipal(User user)
         {
-            Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(user.Id.ToString()), null);
+            SetPrincipal(user.Id);
+        }
+
+        private static void SetPrincipal(long id)
+        {
+            Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(id.ToString()), null);
             if (HttpContext.Current != null)
             {
                 HttpContext.Current.User = Thread.CurrentPrincipal;

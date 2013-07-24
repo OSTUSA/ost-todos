@@ -1,6 +1,9 @@
 using System.Web.Http;
+using System.Web.Mvc;
 using Infrastructure.IoC.Migrations;
 using Infrastructure.IoC.NHibernate;
+using Ninject.Web.Mvc.FilterBindingSyntax;
+using Presentation.Web.Filters;
 using Presentation.Web.Services;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(Presentation.Web.App_Start.NinjectWebCommon), "Start")]
