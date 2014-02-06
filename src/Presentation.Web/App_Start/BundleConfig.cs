@@ -29,7 +29,7 @@ namespace Presentation.Web
                 "~/Content/base.css",
                 "~/Content/modules/*.css"));
 
-            bundles.Add(new StyleBundle("~/Content/boot").Include(
+            bundles.Add(new StyleBundle("~/Content/bootstrap/css/bundle").Include(
                         "~/Content/bootstrap/css/bootstrap.css",
                         "~/Content/bootstrap/css/*.css"
                 ));
