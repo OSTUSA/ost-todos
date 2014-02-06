@@ -12,13 +12,9 @@ namespace Core.Domain.Model.Users
 
         public virtual string Password { get; set; }
 
-        public virtual ICollection<TodoList> Lists { get; set; }
-
-        public User()
-        {
-            Lists = new HashSet<TodoList>();
-        }
-
+        private ICollection<TodoList> lists = new HashSet<TodoList>();
+        public virtual ICollection<TodoList> Lists { get { return lists; } set { lists = value; } }
+        
         public virtual TodoList AddList(TodoList list)
         {
             list.Owner = this;
