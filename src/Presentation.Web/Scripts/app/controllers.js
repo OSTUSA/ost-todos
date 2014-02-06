@@ -77,9 +77,9 @@
     }]).
     controller("TodoCtrl", ["$scope", "Todo", function ($scope, Todo) {
 
-        $scope.delete = function (todo) {
+        $scope.deleteTodo = function (todo) {
             todo.deleting = true;
-            Todo.delete({ id: todo.Id }, {}, function() {
+            Todo['delete']({ id: todo.Id }, {}, function () {
                 $scope.$emit('todo:deleted');
             }, function() {
                 todo.deleting = false;

@@ -17,7 +17,7 @@
                 <ul class="todos">
                     <li ng-repeat="todo in list.Todos | incomplete" ng-controller="TodoCtrl">
                         <label class="checkbox">
-                            <input ng-click="markDone(todo)" type="checkbox" /> {{todo.Title}} <i ng-click="delete(todo)" title="Click to delete todo" class="icon-remove"></i>
+                            <input ng-click="markDone(todo)" type="checkbox" /> {{todo.Title}} <i ng-click="deleteTodo(todo)" title="Click to delete todo" class="icon-remove"></i>
                         </label>     
                     </li>
                 </ul>
@@ -25,7 +25,7 @@
                 <ul class="todos">
                     <li ng-repeat="todo in list.Todos | complete" ng-controller="TodoCtrl">
                         <label class="checkbox">
-                            <input ng-click="markNotDone(todo)" type="checkbox" checked="checked" /> {{todo.Title}} <i ng-click="delete(todo)" title="Click to delete todo" class="icon-remove"></i>
+                            <input ng-click="markNotDone(todo)" type="checkbox" checked="checked" /> {{todo.Title}} <i ng-click="deleteTodo(todo)" title="Click to delete todo" class="icon-remove"></i>
                         </label>
                     </li>
                 </ul>
