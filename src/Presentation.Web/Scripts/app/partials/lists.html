@@ -12,11 +12,6 @@
                 <input type="text" ng-model="Title" placeholder="Pick up the milk" give-focus required />
                 <button type="submit" class="btn btn-success">Add Todo</button>
             </form>
-
-
-
-
-
             <div ng-show="list.Todos.length > 0">
                 <h4 ng-hide="completed() == list.Todos.length">Not Done</h4>
                 <ul class="todos">
@@ -26,13 +21,6 @@
                         </label>     
                     </li>
                 </ul>
-                
-                
-                
-                
-                
-                
-                
                 <h4 ng-hide="completed() == 0">Done</h4>
                 <ul class="todos">
                     <li ng-repeat="todo in list.Todos | complete" ng-controller="TodoCtrl">
