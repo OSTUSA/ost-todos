@@ -12,15 +12,27 @@
                 <input type="text" ng-model="Title" placeholder="Pick up the milk" give-focus required />
                 <button type="submit" class="btn btn-success">Add Todo</button>
             </form>
+
+
+
+
+
             <div ng-show="list.Todos.length > 0">
                 <h4 ng-hide="completed() == list.Todos.length">Not Done</h4>
                 <ul class="todos">
-                    <li ng-repeat="todo in list.Todos | incomplete" ng-controller="TodoCtrl">
-                        <label class="checkbox">
-                            <input ng-click="markDone(todo)" type="checkbox" /> {{todo.Title}} <i ng-click="deleteTodo(todo)" title="Click to delete todo" class="icon-remove"></i>
+                    <li ng-repeat="todo in list.Todos | incomplete" ng-controller="TodoCtrl" ondragover="handleDragOver(event)" ondrop="handleDrop(event)">
+                        <label class="checkbox" draggable="true" ondragstart="handleDragStart(event)" id="{{todo.Id}}">
+                            <input ng-click="markDone(todo)" type="checkbox" /> {{todo.Position}}. {{todo.Title}} <i ng-click="deleteTodo(todo)" title="Click to delete todo" class="icon-remove"></i>
                         </label>     
                     </li>
                 </ul>
+                
+                
+                
+                
+                
+                
+                
                 <h4 ng-hide="completed() == 0">Done</h4>
                 <ul class="todos">
                     <li ng-repeat="todo in list.Todos | complete" ng-controller="TodoCtrl">

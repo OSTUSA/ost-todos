@@ -59,7 +59,7 @@ namespace Presentation.Web.Controllers
         [HttpPost]
         public HttpResponseMessage Todos(long Id, TodoInput todoInput)
         {
-            var todo = new Todo() { Title = todoInput.Title, Completed = false };
+            var todo = new Todo() { Title = todoInput.Title, Completed = false, Position = 1 };
             var list = _repo.Get(Id);
             list.AddTodo(todo);
             _repo.Store(list);
