@@ -28,7 +28,7 @@ namespace Presentation.Web.Controllers
                 {
                     Name = x.Name,
                     Id = x.Id,
-                    Todos = x.Todos.Select(t => new TodoDisplay() { Id = t.Id, Title = t.Title, Completed = t.Completed }).ToList()
+                    Todos = x.Todos.Select(t => new TodoDisplay() { Id = t.Id, Title = t.Title, Completed = t.Completed, Position = t.Position }).OrderBy(t => t.Position).ToList()
                 }).ToList();
             return displays;
         }
@@ -59,11 +59,11 @@ namespace Presentation.Web.Controllers
         [HttpPost]
         public HttpResponseMessage Todos(long Id, TodoInput todoInput)
         {
-            var todo = new Todo() { Title = todoInput.Title, Completed = false, Position = 1 };
             var list = _repo.Get(Id);
+            var todo = new Todo() { Title = todoInput.Title, Completed = false, Position = list.Todos.Count };
             list.AddTodo(todo);
             _repo.Store(list);
-            return Request.CreateResponse(HttpStatusCode.OK, new TodoDisplay { Title = todoInput.Title, Id = todo.Id, Completed = false });
+            return Request.CreateResponse(HttpStatusCode.OK, new TodoDisplay { Title = todoInput.Title, Id = todo.Id, Completed = false, Position = todo.Position });
         }
 
         [Authorize]
@@ -72,7 +72,7 @@ namespace Presentation.Web.Controllers
         {
             var list = _repo.Get(Id);
             return
-                list.Todos.Select(t => new TodoDisplay() { Id = t.Id, Title = t.Title, Completed = t.Completed }).ToList();
+                list.Todos.Select(t => new TodoDisplay() { Id = t.Id, Title = t.Title, Completed = t.Completed, Position = t.Position }).ToList();
             ;
         }
     }

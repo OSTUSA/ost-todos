@@ -5,5 +5,7 @@
         public string Title { get; set; }
 
         public bool Completed { get; set; }
+
+        public long Position { get; set; }
     }
 }
