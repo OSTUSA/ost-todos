@@ -7,5 +7,7 @@
         public string Title { get; set; }
 
         public long Id { get; set; }
+
+        public long Position { get; set; }
     }
 }

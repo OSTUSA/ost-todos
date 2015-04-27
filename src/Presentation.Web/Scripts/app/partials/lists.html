@@ -14,11 +14,12 @@
             </form>
             <div ng-show="list.Todos.length > 0">
                 <h4 ng-hide="completed() == list.Todos.length">Not Done</h4>
-                <ul class="todos">
-                    <li ng-repeat="todo in list.Todos | incomplete" ng-controller="TodoCtrl">
+                <ul class="todos" dnd-list="list.Todos">
+                    <li ng-repeat="todo in list.Todos | incomplete" ng-controller="TodoCtrl" dnd-draggable="todo" dnd-moved="reorderList(list, $index)" dnd-effect-allowed="move"
+                        dnd-selected="Todos.selected = todo">
                         <label class="checkbox">
                             <input ng-click="markDone(todo)" type="checkbox" /> {{todo.Title}} <i ng-click="deleteTodo(todo)" title="Click to delete todo" class="icon-remove"></i>
-                        </label>     
+                        </label>
                     </li>
                 </ul>
                 <h4 ng-hide="completed() == 0">Done</h4>
@@ -44,7 +45,7 @@
             <div class="control-group" ng-class="{error: addListForm.Name.$invalid}">
                 <label class="control-label" for="Name">Name:</label>
                 <div class="controls">
-                    <input type="text" ng-model="Name" value="" id="Name" name="Name" placeholder="New List Name" required />
+                    <input type="text" ng-model="Name" value="" id="Name" name="Name" placeholder="New List Name" required/>
                 </div>
             </div>
             <div class="control-group">
@@ -52,7 +53,7 @@
                     <button type="submit" class="btn btn-primary">Add</button>
                 </div>
             </div>
-        </form>  
+        </form>
     </div>
     <div class="modal-footer">
         <a href="#" data-dismiss="modal" class="btn">Close</a>

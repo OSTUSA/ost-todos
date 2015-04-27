@@ -9,5 +9,7 @@ namespace Core.Domain.Model.Todos
         public virtual bool Completed { get; set; }
 
         public virtual TodoList List { get; set; }
+
+        public virtual long Position { get; set; }
     }
 }

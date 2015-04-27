@@ -102,4 +102,18 @@
             todo.$update();
         };
 
+        $scope.reorderList = function (list, index) {
+            list.Todos.splice(index, 1);
+            for (var i = 0; i < list.Todos.length; i++) {
+                var todo = list.Todos[i];
+                if (todo.Position !== i) {
+                    todo.Position = i;
+                    if (!todo.hasOwnProperty("$update")) {
+                        todo = new Todo(todo);
+                    }
+                    todo.$update();
+                }
+            }
+        }
+
     }]);

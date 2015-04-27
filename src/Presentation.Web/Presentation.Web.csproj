@@ -213,6 +213,7 @@
     <Content Include="Scripts\angular\angular-cookies.js" />
     <Content Include="Scripts\angular\angular-resource.js" />
     <Content Include="Scripts\angular\angular.js" />
+    <Content Include="Scripts\app\dndLists.js" />
     <Content Include="Scripts\app\application.js" />
     <Content Include="Scripts\app\controllers.js" />
     <Content Include="Scripts\app\directives.js" />
